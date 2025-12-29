@@ -1,0 +1,8 @@
+{
+  "name": "Loyu3C App Hub",
+  "description": "A sophisticated portfolio and app management dashboard showcasing AI-powered utility applications with theme switching and AI-assisted exploration.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
