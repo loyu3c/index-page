@@ -31,5 +31,15 @@ export const PROJECTS: Project[] = [
     tags: ['Service', 'SaaS', 'Mobile'],
     category: 'System',
     featured: true
+  },
+  {
+    id: 'ai-stock-helper',
+    title: 'AI Stock 波段選股小幫手',
+    description: '專為波段交易設計的 AI 選股儀表板，提供即時數據分析與趨勢預測。',
+    url: 'https://loyu3c.github.io/ai-stock-dashboard/',
+    imageUrl: 'https://picsum.photos/seed/stock/800/600',
+    tags: ['AI', 'Finance', 'Stock'],
+    category: 'App',
+    featured: true
   }
 ];

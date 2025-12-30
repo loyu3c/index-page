@@ -8,18 +8,15 @@ import AiAssistant from './components/AiAssistant';
 import { LayoutGrid, Globe, Github, Terminal, ChevronRight } from 'lucide-react';
 
 const App: React.FC = () => {
-  // 頁面載入時隨機選擇一個主題
-  const [theme, setTheme] = useState<Theme>(() => {
-    const themes = Object.values(Theme);
-    return themes[Math.floor(Math.random() * themes.length)] as Theme;
-  });
-  
+  // 預設使用明亮主題
+  const [theme, setTheme] = useState<Theme>(Theme.LIGHT);
+
   const [filter, setFilter] = useState<string>('全部');
 
   useEffect(() => {
     const root = window.document.documentElement;
     root.classList.remove('light', 'dark', 'cyber', 'emerald', 'retro');
-    
+
     // Cyber 與 Emerald 共用深色基礎，確保文字顏色正確
     if (theme === Theme.CYBER || theme === Theme.EMERALD || theme === Theme.DARK) {
       root.classList.add('dark');
@@ -32,13 +29,13 @@ const App: React.FC = () => {
   // 排除個人網站（category: 'Website'），僅在作品集顯示 App 與 System
   const portfolioProjects = PROJECTS.filter(p => p.category !== 'Website');
 
-  const filteredProjects = filter === '全部' 
-    ? portfolioProjects 
+  const filteredProjects = filter === '全部'
+    ? portfolioProjects
     : portfolioProjects.filter(p => p.category === filter);
 
   // 主題樣式定義
   const getThemeStyles = () => {
-    switch(theme) {
+    switch (theme) {
       case Theme.CYBER:
         return {
           backgroundColor: '#0a0a12',
@@ -66,23 +63,22 @@ const App: React.FC = () => {
   const categories = ['全部', 'App', 'System'];
 
   // 根據主題動態決定的主色調
-  const primaryColorClass = 
+  const primaryColorClass =
     theme === Theme.EMERALD ? 'bg-emerald-600 hover:bg-emerald-700' :
-    theme === Theme.RETRO ? 'bg-orange-700 hover:bg-orange-800' :
-    'bg-blue-600 hover:bg-blue-700';
+      theme === Theme.RETRO ? 'bg-orange-700 hover:bg-orange-800' :
+        'bg-blue-600 hover:bg-blue-700';
 
-  const accentTextClass = 
+  const accentTextClass =
     theme === Theme.EMERALD ? 'text-emerald-400' :
-    theme === Theme.RETRO ? 'text-orange-700 font-serif' :
-    'text-blue-500';
+      theme === Theme.RETRO ? 'text-orange-700 font-serif' :
+        'text-blue-500';
 
   return (
-    <div 
-      className={`min-h-screen transition-all duration-500 ${
-        theme === Theme.LIGHT ? 'bg-slate-50 text-slate-900' : 
-        theme === Theme.RETRO ? 'text-stone-800' :
-        'bg-gray-950 text-slate-100'
-      }`}
+    <div
+      className={`min-h-screen transition-all duration-500 ${theme === Theme.LIGHT ? 'bg-slate-50 text-slate-900' :
+          theme === Theme.RETRO ? 'text-stone-800' :
+            'bg-gray-950 text-slate-100'
+        }`}
       style={getThemeStyles()}
     >
       {/* Navigation */}
@@ -118,18 +114,17 @@ const App: React.FC = () => {
                 專注於 AI 整合應用與實用水電工程解決方案。透過技術轉化複雜流程為簡單的線上體驗。
               </p>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                <a 
-                  href="https://loyu3c.notion.site/" 
+                <a
+                  href="https://loyu3c.notion.site/"
                   target="_blank"
                   className={`px-8 py-3 text-white rounded-xl font-bold transition-all flex items-center shadow-lg ${primaryColorClass} shadow-blue-500/20`}
                 >
                   探索個人網站 <ChevronRight size={20} className="ml-1" />
                 </a>
-                <a 
+                <a
                   href="#projects"
-                  className={`px-8 py-3 bg-white dark:bg-gray-800 border rounded-xl font-bold hover:shadow-md transition-all flex items-center ${
-                    theme === Theme.RETRO ? 'border-orange-200 text-orange-900 bg-orange-50' : 'border-gray-200 dark:border-gray-700'
-                  }`}
+                  className={`px-8 py-3 bg-white dark:bg-gray-800 border rounded-xl font-bold hover:shadow-md transition-all flex items-center ${theme === Theme.RETRO ? 'border-orange-200 text-orange-900 bg-orange-50' : 'border-gray-200 dark:border-gray-700'
+                    }`}
                 >
                   查看開發作品
                 </a>
@@ -181,11 +176,10 @@ const App: React.FC = () => {
                 <button
                   key={cat}
                   onClick={() => setFilter(cat)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 active:scale-95 ${
-                    filter === cat 
-                      ? `${primaryColorClass} text-white shadow-md` 
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 active:scale-95 ${filter === cat
+                      ? `${primaryColorClass} text-white shadow-md`
                       : `bg-white dark:bg-gray-800 border transition-colors ${theme === Theme.RETRO ? 'border-orange-200 text-orange-900' : 'border-gray-200 dark:border-gray-700 hover:border-blue-400'}`
-                  }`}
+                    }`}
                 >
                   {cat}
                 </button>
@@ -214,7 +208,7 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col items-center md:items-start">
             <div className="flex items-center space-x-2 mb-4">
-               <div className={`w-6 h-6 rounded flex items-center justify-center text-white ${primaryColorClass}`}>
+              <div className={`w-6 h-6 rounded flex items-center justify-center text-white ${primaryColorClass}`}>
                 <Terminal size={14} />
               </div>
               <span className={`font-bold ${theme === Theme.RETRO ? 'font-serif' : ''}`}>Loyu3C Dev</span>
@@ -223,7 +217,7 @@ const App: React.FC = () => {
               致力於將水電工藝與尖端技術結合。© {new Date().getFullYear()} Loyu3C.
             </p>
           </div>
-          
+
           <div className="flex space-x-6">
             <a href="https://github.com/loyu3c" target="_blank" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors">
               <Github size={24} />
