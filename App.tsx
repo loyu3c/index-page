@@ -76,8 +76,8 @@ const App: React.FC = () => {
   return (
     <div
       className={`min-h-screen transition-all duration-500 ${theme === Theme.LIGHT ? 'bg-slate-50 text-slate-900' :
-          theme === Theme.RETRO ? 'text-stone-800' :
-            'bg-gray-950 text-slate-100'
+        theme === Theme.RETRO ? 'text-stone-800' :
+          'bg-gray-950 text-slate-100'
         }`}
       style={getThemeStyles()}
     >
@@ -123,7 +123,11 @@ const App: React.FC = () => {
                 </a>
                 <a
                   href="#projects"
-                  className={`px-8 py-3 bg-white dark:bg-gray-800 border rounded-xl font-bold hover:shadow-md transition-all flex items-center ${theme === Theme.RETRO ? 'border-orange-200 text-orange-900 bg-orange-50' : 'border-gray-200 dark:border-gray-700'
+                  className={`px-8 py-3 rounded-xl font-bold hover:shadow-md transition-all flex items-center ${theme === Theme.RETRO
+                      ? 'bg-orange-50 border border-orange-200 text-orange-900'
+                      : theme === Theme.LIGHT
+                        ? 'bg-blue-50 text-blue-700 border border-blue-100 hover:bg-blue-100'
+                        : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700'
                     }`}
                 >
                   查看開發作品
@@ -177,8 +181,11 @@ const App: React.FC = () => {
                   key={cat}
                   onClick={() => setFilter(cat)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 active:scale-95 ${filter === cat
-                      ? `${primaryColorClass} text-white shadow-md`
-                      : `bg-white dark:bg-gray-800 border transition-colors ${theme === Theme.RETRO ? 'border-orange-200 text-orange-900' : 'border-gray-200 dark:border-gray-700 hover:border-blue-400'}`
+                    ? `${primaryColorClass} text-white shadow-md`
+                    : `bg-white dark:bg-gray-800 border transition-colors ${theme === Theme.RETRO
+                      ? 'border-orange-200 text-orange-900'
+                      : 'text-slate-600 border-gray-200 hover:text-blue-600 hover:border-blue-300 dark:border-gray-700 dark:text-gray-300'
+                    }`
                     }`}
                 >
                   {cat}
