@@ -41,5 +41,15 @@ export const PROJECTS: Project[] = [
     tags: ['AI', 'Finance', 'Stock'],
     category: 'App',
     featured: true
+  },
+  {
+    id: 'snake-game',
+    title: '貪吃蛇遊戲',
+    description: '經典貪吃蛇遊戲，回味無窮的懷舊樂趣。',
+    url: 'https://loyu3c.github.io/snake-game/',
+    imageUrl: 'https://picsum.photos/seed/snake/800/600',
+    tags: ['Game', 'Classic', 'Web'],
+    category: 'App',
+    featured: true
   }
 ];
