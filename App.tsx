@@ -124,10 +124,10 @@ const App: React.FC = () => {
                 <a
                   href="#projects"
                   className={`px-8 py-3 rounded-xl font-bold hover:shadow-md transition-all flex items-center ${theme === Theme.RETRO
-                      ? 'bg-orange-50 border border-orange-200 text-orange-900'
-                      : theme === Theme.LIGHT
-                        ? 'bg-blue-50 text-blue-700 border border-blue-100 hover:bg-blue-100'
-                        : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700'
+                    ? 'bg-orange-50 border border-orange-200 text-orange-900'
+                    : theme === Theme.LIGHT
+                      ? 'bg-blue-50 text-blue-700 border border-blue-100 hover:bg-blue-100'
+                      : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700'
                     }`}
                 >
                   查看開發作品
@@ -153,7 +153,7 @@ const App: React.FC = () => {
       <section className={`py-12 border-y ${theme === Theme.RETRO ? 'border-orange-100 bg-orange-50/30' : 'border-gray-100 dark:border-gray-800/50 bg-gray-50/50 dark:bg-gray-900/20'}`}>
         <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-around gap-8 text-center">
           <div>
-            <div className={`text-3xl font-bold ${theme === Theme.EMERALD ? 'text-emerald-500' : theme === Theme.RETRO ? 'text-orange-800' : 'text-blue-600'}`}>3+</div>
+            <div className={`text-3xl font-bold ${theme === Theme.EMERALD ? 'text-emerald-500' : theme === Theme.RETRO ? 'text-orange-800' : 'text-blue-600'}`}>{portfolioProjects.length}+</div>
             <div className="text-sm opacity-60 text-gray-500">上線作品</div>
           </div>
           <div>
